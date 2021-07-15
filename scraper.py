@@ -14,7 +14,13 @@ class Scraper:
         soup = BeautifulSoup(source, 'lxml')
         return(soup)
 
-    def get_season_and_title(self):
+    def get_title(self):
+        soup = self.get_html()
+        title = soup.title.text.split('-')
+        # title = title[1]
+        return(title[1].strip()) 
+
+    def get_season_and_episode(self):
         soup = self.get_html()
         title = soup.title.text.split('-')
         season_title = title[0].split('x')
@@ -29,11 +35,10 @@ class Scraper:
         script_list = []
         for line in script.select('p'):
             line = line.text
-            # TODO: Clean the text, remove [], () and single punctuation
-            # line = re.sub("[\(\[].*?[\)\]]", "", str(line.text))
+            line = re.sub("[\(\[].*?[\)\]]", "", str(line))
             if line:
-                split_line = line.split(': ')
-
+                split_line = line.split(':')
+                print(split_line)
                 script_line = {
                     'name':split_line[0],
                     'line': split_line[1],
@@ -43,9 +48,11 @@ class Scraper:
         return(script_list)
 
 
+
     def get_characters_list(self):
         characters_list = list()
         for ch in self.get_transcript():
+            # print(ch)
             characters_list.append(ch['name'])
         # print(dict(Counter(characters_list)))
         characters_list = list(dict.fromkeys(characters_list))
@@ -70,7 +77,6 @@ class Scraper:
                     total_word_count +=transcript['count']
 
             episode_word_count[character] = total_word_count
-
 
         return(episode_word_count)
       
