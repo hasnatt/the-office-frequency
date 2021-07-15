@@ -15,9 +15,7 @@ for episode in range(25305,25310):
 
     request = Scraper(url)
 
-
-
-    # construct dict
+    # construct dictionary
     word_frequency_dict['s'] = request.get_season_and_episode()['s']
     word_frequency_dict['e'] = request.get_season_and_episode()['e']
     word_frequency_dict['title'] = request.get_title()
