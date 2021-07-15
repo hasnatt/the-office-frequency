@@ -43,6 +43,39 @@ class Scraper:
         return(script_list)
 
 
+    def get_characters_list(self):
+        characters_list = list()
+        for ch in self.get_transcript():
+            characters_list.append(ch['name'])
+        # print(dict(Counter(characters_list)))
+        characters_list = list(dict.fromkeys(characters_list))
+        return(characters_list)
+
+    def get_characters_appearance_frequency(self):
+        characters_list = list()
+        for ch in self.get_transcript():
+            characters_list.append(ch['name'])
+        # print(dict(Counter(characters_list)))
+
+        return(dict(Counter(characters_list)))  
+
+
+    def get_character_word_frequency(self):
+        episode_word_count = {}
+        for character in self.get_characters_list():
+            transcripts = self.get_transcript()
+            total_word_count = 0
+            for transcript in transcripts:
+                if character == transcript['name']:
+                    total_word_count +=transcript['count']
+
+            episode_word_count[character] = total_word_count
+
+
+        return(episode_word_count)
+      
+
+
 
 # with open('01_02.html') as html_file:
 #     soup = BeautifulSoup(html_file, 'lxml')
