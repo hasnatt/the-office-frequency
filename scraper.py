@@ -23,6 +23,26 @@ class Scraper:
             'e': season_title[1]
         })
 
+    def get_transcript(self):
+        soup = self.get_html()
+        script = soup.find('div', class_='postbody')
+        script_list = []
+        for line in script.select('p'):
+            line = line.text
+            # TODO: Clean the text, remove [], () and single punctuation
+            # line = re.sub("[\(\[].*?[\)\]]", "", str(line.text))
+            if line:
+                split_line = line.split(': ')
+
+                script_line = {
+                    'name':split_line[0],
+                    'line': split_line[1],
+                    'count': len(split_line[1].split())
+                }
+                script_list.append(script_line)
+        return(script_list)
+
+
 
 # with open('01_02.html') as html_file:
 #     soup = BeautifulSoup(html_file, 'lxml')
