@@ -14,6 +14,16 @@ class Scraper:
         soup = BeautifulSoup(source, 'lxml')
         return(soup)
 
+    def is_deleted_scenes(self):
+        soup = self.get_html()
+        title = soup.title.text
+        substring = 'Deleted Scenes'
+        if substring in title:
+            return(True)
+        else:
+            return(False)
+
+
     def get_title(self):
         soup = self.get_html()
         title = soup.title.text.split('-')
@@ -37,11 +47,10 @@ class Scraper:
             line = line.text
             line = re.sub("[\(\[].*?[\)\]]", "", str(line))
             if line:
-                split_line = line.split(':')
-                print(split_line)
+                split_line = line.split(': ')
                 script_line = {
                     'name':split_line[0],
-                    'line': split_line[1],
+                    'line': split_line[1].strip(),
                     'count': len(split_line[1].split())
                 }
                 script_list.append(script_line)
@@ -79,7 +88,8 @@ class Scraper:
             episode_word_count[character] = total_word_count
 
         return(episode_word_count)
-      
+
+  
 
 
 

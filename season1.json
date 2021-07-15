@@ -1,0 +1,130 @@
+[
+  {
+    "s": "01",
+    "e": "01 ",
+    "title": "Pilot",
+    "frequencies": {
+      "Michael": 1526,
+      "Jim": 318,
+      "Pam": 293,
+      "Dwight": 286,
+      "Jan": 139,
+      "Michel": 1,
+      "Todd Packer": 25,
+      "Phyllis": 7,
+      "Stanley": 33,
+      "Oscar": 23,
+      "Angela": 10,
+      "Kevin": 4,
+      "Ryan": 54,
+      "Man": 5,
+      "Roy": 32
+    }
+  },
+  {
+    "s": "01",
+    "e": "02 ",
+    "title": "Diversity Day",
+    "frequencies": {
+      "Michael": 1556,
+      "Mr. Brown": 467,
+      "Jim": 327,
+      "Dwight": 160,
+      "Pam": 67,
+      "Oscar": 70,
+      "Kevin": 74,
+      "Toby": 16,
+      "Kelly": 11,
+      "Stanley": 23,
+      "Ryan": 32,
+      "Angela": 4
+    }
+  },
+  {
+    "s": "01",
+    "e": "03 ",
+    "title": "Health Care",
+    "frequencies": {
+      "Michael": 1072,
+      "Pam": 213,
+      "Jan": 142,
+      "Jim": 332,
+      "Dwight": 755,
+      "Stanley": 43,
+      "Oscar": 48,
+      "Kevin": 35,
+      "Angela": 26,
+      "Meredith": 35,
+      "Travel Agent": 25,
+      "Man on Phone": 33,
+      "Ryan": 11
+    }
+  },
+  {
+    "s": "01",
+    "e": "04 ",
+    "title": "The Alliance",
+    "frequencies": {
+      "Dwight": 516,
+      "Michael": 1276,
+      "Stanley": 9,
+      "Pam": 226,
+      "Phyllis": 41,
+      "Angela": 35,
+      "Jim": 581,
+      "Kevin": 6,
+      "Toby": 14,
+      "Oscar": 98,
+      "Ryan": 12,
+      "Everybody": 19,
+      "Meredith": 79,
+      "Roy": 28
+    }
+  },
+  {
+    "s": "01",
+    "e": "05 ",
+    "title": "Basketball",
+    "frequencies": {
+      "Michael": 1604,
+      "Dwight": 121,
+      "Jim": 207,
+      "Phyllis": 27,
+      "Pam": 133,
+      "Ryan": 34,
+      "Lonny": 37,
+      "Darryl": 102,
+      "Everybody": 1,
+      "Stanley": 10,
+      "Oscar": 16,
+      "Kevin": 7,
+      "Angela": 26,
+      "Roy": 69,
+      "Teammates": 1,
+      "Michael and Dwight": 2,
+      "Warehouse worker": 7,
+      "Madge": 13,
+      "Worker": 26
+    }
+  },
+  {
+    "s": "01",
+    "e": "06 ",
+    "title": "Hot Girl",
+    "frequencies": {
+      "Jan": 71,
+      "Michael": 1446,
+      "Dwight": 243,
+      "Pam": 202,
+      "Katy": 327,
+      "Kevin": 23,
+      "Ryan": 52,
+      "Oscar": 4,
+      "Toby": 21,
+      "Roy": 90,
+      "Jim": 503,
+      "Stanley": 22,
+      "Angela": 18
+    }
+  }
+]
