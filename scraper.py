@@ -9,10 +9,12 @@ class Scraper:
     def __init__(self, url):
         self.url = url
 
+
     def get_html(self):
         source = requests.get(self.url).text
         soup = BeautifulSoup(source, 'lxml')
         return(soup)
+
 
     def is_deleted_scenes(self):
         soup = self.get_html()
@@ -26,9 +28,10 @@ class Scraper:
 
     def get_title(self):
         soup = self.get_html()
-        title = soup.title.text.split('-')
+        title = soup.title.text.split(' - ')
         # title = title[1]
         return(title[1].strip()) 
+
 
     def get_season_and_episode(self):
         soup = self.get_html()
@@ -39,6 +42,7 @@ class Scraper:
             'e': season_title[1]
         })
 
+
     def get_transcript(self):
         soup = self.get_html()
         script = soup.find('div', class_='postbody')
@@ -46,8 +50,8 @@ class Scraper:
         for line in script.select('p'):
             line = line.text
             line = re.sub("[\(\[].*?[\)\]]", "", str(line))
-            if line:
-                split_line = line.split(': ')
+            if line and (':' in line) :
+                split_line = line.split(':')
                 script_line = {
                     'name':split_line[0],
                     'line': split_line[1].strip(),

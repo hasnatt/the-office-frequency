@@ -6,10 +6,8 @@ from scraper import *
 
 full_dict = list()
 
-for episode in range(25331,25355):
+for episode in range(25451,25474+1):
     print(f'writing episode '+str(episode))
-    print('**********************************************************************************')
-    print('**********************************************************************************')
     word_frequency_dict = dict()
     url = 'https://transcripts.foreverdreaming.org/viewtopic.php?f=574&t='+str(episode)
 
@@ -26,5 +24,5 @@ for episode in range(25331,25355):
         time.sleep(1)
 
 
-with open('season3.json', 'w') as f:
+with open('season8.json', 'w') as f:
     json.dump(full_dict, f)
