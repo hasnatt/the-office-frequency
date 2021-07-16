@@ -1,8 +1,5 @@
 from bs4 import BeautifulSoup
-import requests
-import re
-import string
-import json
+import requests, re, string, json
 from collections import Counter
 
 class Scraper:
