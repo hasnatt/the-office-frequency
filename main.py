@@ -6,6 +6,6 @@ if __name__ == '__main__':
     # graph = GraphCharacter('Pam', 'scriptdata/full_frequency.json')
 
     da = DataAnalysis('scriptdata/full_frequency.json')
-    da.get_character_total_words(range=15)
+    da.plot_character_total_words(trange=15)
 
 

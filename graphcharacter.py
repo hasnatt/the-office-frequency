@@ -96,10 +96,6 @@ class DataAnalysis():
         return(list(dict.fromkeys(character_list)))
 
 
-    # TODO: below
-    def get_popular_character_list(self):
-        pass 
-
     def get_character_total_words(self, range):
         #Parameters:
         #    range (range):The range and amount of character word counts 
@@ -120,6 +116,13 @@ class DataAnalysis():
         print(new[0:range]) 
 
     # TODO: below
-    def plot_character_total_words(self):
-        pass
+    def plot_character_total_words(self, trange):
+        print(self.get_character_total_words(trange))
+        # k = list()
+        # for k in self.get_character_total_words(trange):
+        #     print(item)
+
+        # keys = self.get_character_total_words(range).keys()
+        # values = self.get_character_total_words(range).values()
+        # plt.bar(keys, values)
 
