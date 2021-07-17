@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests, time
 from scraper import *
 
-
+# TODO: Convert to object
 full_dict = list()
 
 for episode in range(25306,25308+1):
