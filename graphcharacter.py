@@ -2,6 +2,8 @@ import json
 from matplotlib import pyplot as plt
 import pandas as pd
 import seaborn as sns
+from operator import itemgetter
+
 
 class GraphCharacter:
     def __init__(self, character, freq_dir):
@@ -74,4 +76,45 @@ class GraphCharacter:
 
         sns.lineplot(x='ep', y='words', data=self.get_df(), sort=False, linewidth=4)
         plt.savefig(f"img/{self.character}.png", dpi = 400, transparent=True)    
+
+
+class DataAnalysis():
+    def __init__(self, freq_dir):
+        self.freq_dir = freq_dir
+
+
+    def load_script(self):
+        with open(self.freq_dir) as json_file:
+            data = json.load(json_file)
+        return(data)
+
+    def get_character_list(self):
+        character_list = list()
+        for character in self.load_script():
+            for x in character['frequencies']:
+                character_list.append(x)
+        return(list(dict.fromkeys(character_list)))
+
+    def get_character_total_words(self, range):
+        #Parameters:
+        #    range (range):The range and amount of character word counts 
+
+        l = list()
+        # for each character
+        for character in self.get_character_list():
+            word_counter = 0
+            # in  
+            for script in self.load_script():
+                for key in script['frequencies']:
+                    if key == character:
+                        # print(key, '->', script['frequencies'][key])
+                        word_counter += int(script['frequencies'][key])
+            l.append({'character': character, 'word_count':word_counter})
+
+        new = sorted(l, key=itemgetter('word_count'), reverse=True)
+        print(new[0:range]) 
+
+
+    def plot_character_total_words(self):
+        pass
 
