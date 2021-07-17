@@ -1,6 +1,8 @@
 import json
 from matplotlib import pyplot as plt
 
+# TODO: Implement a class and start using static and class methods
+
 with open('full_frequency.json') as json_file:
     data = json.load(json_file)
 
