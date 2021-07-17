@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-class Grapher:
+class GraphCharacter:
     def __init__(self, character, freq_dir):
         self.character = character
         self.freq_dir = freq_dir
@@ -13,7 +13,7 @@ class Grapher:
         with open(self.freq_dir) as json_file:
             data = json.load(json_file)
         return(data)
-
+ 
 
     def get_episode_wordfreq_lists(self):
         words_list = list()
