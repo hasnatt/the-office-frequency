@@ -66,16 +66,35 @@ class GraphCharacter:
         sns.lineplot(x='ep', y='words', data=self.get_df(), sort=False, linewidth=4)
         plt.show()
 
-    def plot_save(self):
-        plt.figure(figsize=(40, 4))
+    def plot_save(self, colour):
+        plt.figure(figsize=(40, 3.5))
         plt.rc('font', size=1) 
         plt.ylim([0,2300])
-        plt.fill_between(self.get_df().ep, self.get_df().words, color='tab:blue',alpha=0.3)
+        plt.fill_between(self.get_df().ep, self.get_df().words, color=colour,alpha=0.3)
         plt.axis(False)
         plt.xticks(rotation=90)
 
-        sns.lineplot(x='ep', y='words', data=self.get_df(), sort=False, linewidth=4)
-        plt.savefig(f"img/{self.character}.png", dpi = 400, transparent=True)    
+        sns.lineplot(x='ep', y='words', data=self.get_df(), sort=False, linewidth=4, color=colour)
+        plt.savefig(f"img/{self.character}.png", dpi = 400, transparent=True)
+
+
+    @staticmethod
+    def get_character_colours():
+        return({
+            'Michael': '#FFFFFF',
+            'Dwight': '#d9ba95',
+            'Jim': '#cddaed',
+            'Pam': '#f4cff0',
+            'Andy': '#c94c54',
+            'Angela': '#fff2dc',
+            'Erin': '#5bb5b6',
+            'Kevin': '#ab9479',
+            'Oscar': '#dad3f4',
+            'Ryan': '#7b86bc',
+
+
+        })
+
 
 
 class DataAnalysis():
@@ -88,6 +107,7 @@ class DataAnalysis():
             data = json.load(json_file)
         return(data)
 
+
     def get_character_list(self):
         character_list = list()
         for character in self.load_script():
@@ -97,14 +117,9 @@ class DataAnalysis():
 
 
     def get_character_total_words(self, range):
-        #Parameters:
-        #    range (range):The range and amount of character word counts 
-
         l = list()
-        # for each character
         for character in self.get_character_list():
             word_counter = 0
-            # in  
             for script in self.load_script():
                 for key in script['frequencies']:
                     if key == character:
@@ -113,7 +128,8 @@ class DataAnalysis():
             l.append({'character': character, 'word_count':word_counter})
 
         new = sorted(l, key=itemgetter('word_count'), reverse=True)
-        print(new[0:range]) 
+        return(new[0:range]) 
+
 
     # TODO: below
     def plot_character_total_words(self, trange):
