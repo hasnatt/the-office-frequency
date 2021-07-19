@@ -29,7 +29,7 @@ class GraphCharacter:
             if self.character in episode['frequencies'].keys():
                 # print(f"{episode['s']}x{episode['e']}: {episode['frequencies'][self.character]")
                 words_list.append(int(episode['frequencies'][self.character]))
-                episodes_list.append(f"{episode['s']}{episode['e']}")
+                episodes_list.append(f"{episode['s']}x{episode['e']}")
             
             else:
                 # print(f"{episode['s']}x{episode['e']}: 0")    
@@ -78,6 +78,17 @@ class GraphCharacter:
         plt.savefig(f"img/{self.character}.png", dpi = 400, transparent=True)
 
 
+    def plot_save2(self, colour):
+        plt.figure(figsize=(36, 4))
+        plt.rc('font', size=12) 
+        plt.fill_between(self.get_df().ep, self.get_df().words, color=colour,alpha=0.3)
+        plt.axis()
+        plt.xticks(rotation=45)
+
+        sns.lineplot(x='ep', y='words', data=self.get_df(), sort=False, linewidth=4, color=colour)
+        plt.savefig(f"img2/{self.character}.png", dpi = 400)    
+
+
     @staticmethod
     def get_character_colours():
         return({
@@ -91,6 +102,7 @@ class GraphCharacter:
             'Kevin': '#ab9479',
             'Oscar': '#dad3f4',
             'Ryan': '#7b86bc',
+            'Creed': '#7e7e7e'
         })
 
 
