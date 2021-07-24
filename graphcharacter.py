@@ -1,4 +1,4 @@
-import json
+import json, os
 from matplotlib import pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -79,12 +79,13 @@ class GraphCharacter:
 
 
     def plot_save2(self, colour):
+        if not os.path.exists('./img2'):
+            os.makedirs('./img2')
         plt.figure(figsize=(36, 4))
         plt.rc('font', size=12) 
         plt.fill_between(self.get_df().ep, self.get_df().words, color=colour,alpha=0.3)
         plt.axis()
         plt.xticks(rotation=45)
-
         sns.lineplot(x='ep', y='words', data=self.get_df(), sort=False, linewidth=4, color=colour)
         plt.savefig(f"img2/{self.character}.png", dpi = 400)    
 
