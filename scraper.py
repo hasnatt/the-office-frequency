@@ -26,7 +26,6 @@ class Scraper:
     def get_title(self):
         soup = self.get_html()
         title = soup.title.text.split(' - ')
-        # title = title[1]
         return(title[1].strip()) 
 
 
@@ -65,6 +64,7 @@ class Scraper:
         characters_list = list(dict.fromkeys(characters_list))
         return(characters_list)
 
+
     def get_characters_appearance_frequency(self):
         characters_list = list()
         for ch in self.get_transcript():
@@ -84,6 +84,7 @@ class Scraper:
             episode_word_count[character] = total_word_count
 
         return(episode_word_count)
+
 
 if __name__ == '__main__':
     full_dict = list()
