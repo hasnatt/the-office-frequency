@@ -19,8 +19,8 @@ def main():
         print(character)
         graph = GraphCharacter(character, 'full_frequency.json')
         character_colours = graph.get_character_colours()
-        # graph.plot_save(character_colours[character])
-        graph.plot_save2(character_colours[character])
+        graph.plot_save(character_colours[character])
+        # graph.plot_save2(character_colours[character])
 
 
 if __name__ == '__main__':

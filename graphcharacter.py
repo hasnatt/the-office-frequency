@@ -67,7 +67,7 @@ class GraphCharacter:
         plt.show()
 
     def plot_save(self, colour):
-        plt.figure(figsize=(36, 4))
+        plt.figure(figsize=(36, 6))
         plt.rc('font', size=1) 
         plt.ylim([0,2300])
         plt.fill_between(self.get_df().ep, self.get_df().words, color=colour,alpha=0.3)
