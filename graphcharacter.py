@@ -105,7 +105,10 @@ class GraphCharacter:
             'Kevin': '#ab9479',
             'Oscar': '#dad3f4',
             'Ryan': '#7b86bc',
-            'Creed': '#7e7e7e'
+            'Creed': '#7e7e7e',
+            'Darryl': '#87808a',
+            'Kelly': '#FFC0CB'
+
         })
 
 
@@ -146,7 +149,8 @@ class DataAnalysis():
 
     # TODO: below
     def plot_character_total_words(self, trange):
-        print(self.get_character_total_words(trange))
+        pass
+        # print(self.get_character_total_words(trange))
         # k = list()
         # for k in self.get_character_total_words(trange):
         #     print(item)

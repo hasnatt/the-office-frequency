@@ -5,7 +5,7 @@ from scraper import *
 def main():
     da = DataAnalysis('full_frequency.json')
     # Range for only top 10 most spoken characters
-    cw = da.get_character_total_words(range=10)
+    cw = da.get_character_total_words(range=12)
     popular_characters = list()
 
     for item in cw:
