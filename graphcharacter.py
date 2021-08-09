@@ -14,17 +14,20 @@ class GraphCharacter:
         self.character = character
         self.freq_dir = freq_dir
 
-    def load_script(self):
+    def load_frequency(self):
+        """Load JSON frequency data"""
         with open(self.freq_dir) as json_file:
             data = json.load(json_file)
         return data
 
     def get_episode_wordfreq_lists(self):
+        """get a list to build the dataframe object, 
+        which represents x and y axis inputs  """
         words_list = list()
         episodes_list = list()
         counter = 0
         counter_list = list()
-        for episode in self.load_script():
+        for episode in self.load_frequency():
 
             counter_list.append(counter)
             counter += 1
@@ -124,7 +127,7 @@ class DataAnalysis:
     def __init__(self, freq_dir):
         self.freq_dir = freq_dir
 
-    def load_script(self):
+    def load_frequency(self):
         """Load the word frequency JSON collected in the scraper as dict"""
         with open(self.freq_dir) as json_file:
             data = json.load(json_file)
@@ -133,7 +136,7 @@ class DataAnalysis:
     def get_character_list(self):
         """get all characters in the dict"""
         character_list = list()
-        for character in self.load_script():
+        for character in self.load_frequency():
             for word_count in character["frequencies"]:
                 character_list.append(word_count)
         return list(dict.fromkeys(character_list))
@@ -143,7 +146,7 @@ class DataAnalysis:
         characters_total_words = list()
         for character in self.get_character_list():
             word_counter = 0
-            for script in self.load_script():
+            for script in self.load_frequency():
                 for key in script["frequencies"]:
                     if key == character:
                         word_counter += int(script["frequencies"][key])
