@@ -54,6 +54,7 @@ class GraphCharacter:
         return self.get_episode_wordfreq_lists()["episode_list"]
 
     def get_df(self):
+        """Produce dataframe for both X and Y axis"""
         return pd.DataFrame(
             {"ep": self.get_episode_list(), "words": self.get_word_freq_list()}
         )
