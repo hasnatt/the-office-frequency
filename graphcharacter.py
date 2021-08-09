@@ -1,4 +1,7 @@
-import json, os
+"""Data Analysis module"""
+
+import json
+import os
 from matplotlib import pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -14,8 +17,8 @@ class GraphCharacter:
     def load_script(self):
         with open(self.freq_dir) as json_file:
             data = json.load(json_file)
-        return(data)
- 
+        return data
+
 
     def get_episode_wordfreq_lists(self):
         words_list = list()
@@ -44,13 +47,13 @@ class GraphCharacter:
         )
 
     def get_word_freq_list(self):
-        return(self.get_episode_wordfreq_lists()['word_frequencies'])   
+        return self.get_episode_wordfreq_lists()['word_frequencies']
 
     def get_episode_list(self):
-        return(self.get_episode_wordfreq_lists()['episode_list']) 
+        return self.get_episode_wordfreq_lists()['episode_list']
 
     def get_df(self):
-        return(pd.DataFrame({'ep': self.get_episode_list(), 'words': self.get_word_freq_list()}))
+        return pd.DataFrame({'ep': self.get_episode_list(), 'words': self.get_word_freq_list()})
 
     def plot_show(self):
         plt.figure(figsize=(40, 4))
@@ -108,7 +111,6 @@ class GraphCharacter:
             'Creed': '#7e7e7e',
             'Darryl': '#87808a',
             'Kelly': '#FFC0CB'
-
         })
 
 
@@ -121,7 +123,7 @@ class DataAnalysis():
     def load_script(self):
         with open(self.freq_dir) as json_file:
             data = json.load(json_file)
-        return(data)
+        return data 
 
 
     def get_character_list(self):
@@ -129,7 +131,7 @@ class DataAnalysis():
         for character in self.load_script():
             for x in character['frequencies']:
                 character_list.append(x)
-        return(list(dict.fromkeys(character_list)))
+        return list(dict.fromkeys(character_list)) 
 
 
     def get_character_total_words(self, range):
@@ -144,7 +146,7 @@ class DataAnalysis():
             l.append({'character': character, 'word_count':word_counter})
 
         new = sorted(l, key=itemgetter('word_count'), reverse=True)
-        return(new[0:range]) 
+        return new[0:range] 
 
 
     # TODO: below
