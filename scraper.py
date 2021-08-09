@@ -1,10 +1,12 @@
 """Scraper module"""
-from bs4 import BeautifulSoup
-import requests
+
 import re
 import json
 import time
 from collections import Counter
+import requests
+from bs4 import BeautifulSoup
+
 
 class Scraper:
     """Scraping the office transcript class """
