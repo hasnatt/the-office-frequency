@@ -142,3 +142,4 @@ pyvenv.cfg
 .env
 pip-selfcheck.json
 
+.DS_Store
